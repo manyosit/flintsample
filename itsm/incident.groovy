@@ -1,0 +1,5 @@
+def eventData = input.get("eventData")
+def queryResponse = call.bit("remedy:itsm:createIncidentWorklog.groovy")
+                        .set("IncidentId", eventData.RequestNumber)
+                        .set("workLogText", "Incident changed")
+                        .sync()
